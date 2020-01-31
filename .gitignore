@@ -7,3 +7,4 @@ logs/
 *.DS_Store
 doc/
 out/*
+!.mvn/wrapper/maven-wrapper.jar
