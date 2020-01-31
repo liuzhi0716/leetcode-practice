@@ -1,0 +1,9 @@
+*/target
+target/*
+logs/
+.idea/
+*.iml
+*.class
+*.DS_Store
+doc/
+out/*
