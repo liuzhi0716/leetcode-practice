@@ -1,9 +1,6 @@
 package com.ecnu.liu.weapon;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
@@ -107,4 +104,39 @@ public class LengthOfLongestSubstring3 {
         }
         return Math.max(max, j-i);
     }
+
+    /**
+     * 利用hashmap，但不做remove操作
+     * 保证滑动窗口的左边下标值始终大于当前值
+     * 对比解法1
+      */
+    public int lengthOfLongestSubstring4(String s) {
+        int n = s.length(), ans = 0;
+        Map<Character, Integer> map = new HashMap<>(); // current index of character
+        // try to extend the range [i, j]
+        for (int j = 0, i = 0; j < n; j++) {
+            if (map.containsKey(s.charAt(j))) {
+                i = Math.max(map.get(s.charAt(j)), i);
+            }
+            ans = Math.max(ans, j - i + 1);
+            map.put(s.charAt(j), j + 1);
+        }
+        return ans;
+    }
+
+    /**
+     * 利用数组存储字符对应的下标值，128个字符，长度为128
+     */
+    public int lengthOfLongestSubstring5(String s) {
+        int n = s.length(), ans = 0;
+        int[] index = new int[128]; // current index of character
+        // try to extend the range [i, j]
+        for (int j = 0, i = 0; j < n; j++) {
+            i = Math.max(index[s.charAt(j)], i);
+            ans = Math.max(ans, j - i + 1);
+            index[s.charAt(j)] = j + 1;
+        }
+        return ans;
+    }
+
 }
