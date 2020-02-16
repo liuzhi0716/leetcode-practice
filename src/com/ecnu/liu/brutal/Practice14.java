@@ -28,6 +28,13 @@ package com.ecnu.liu.brutal;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Practice14 {
+
+
+    /**
+     * 思路，每次都把第一个字符串与每个字符串的第i个字符比较，如果都有，就加到result里，没有就可以直接返回了。
+     * @param strs
+     * @return
+     */
     public static String longestCommonPrefix (String[] strs) {
         StringBuffer sb = new StringBuffer();
         int len = 0;
@@ -55,7 +62,7 @@ public class Practice14 {
     }
 
     /**
-     * 方法2，简单明了
+     * 方法2，简单明了，是每次比较一个字符串，看相同的最小长度min，两种方法比较的纬度不同
      */
     public String longestCommonPrefix2 (String[] strs) {
         if (strs.length == 0) {
@@ -78,9 +85,10 @@ public class Practice14 {
     }
 
     public static void main (String[] args) {
-        String[] array = new String[2];
-        array[0] = "c";
-        array[1] = "c";
+        String[] array = new String[3];
+        array[0] = "abc";
+        array[1] = "ab";
+        array[2] = "abd";
         longestCommonPrefix(array);
     }
 }
