@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 见TwoSum1.java和ThreeSum15.java
  */
-public class KSum {
+public class P1_KSum {
 
     /**
      * 递归执行

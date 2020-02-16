@@ -17,7 +17,7 @@ package com.ecnu.liu.weapon;
  链接：https://leetcode-cn.com/problems/add-two-numbers
  著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class AddTwoNumbers2 {
+public class P2_AddTwoNumbers {
 
     class ListNode {
         int val;
