@@ -25,7 +25,7 @@ import java.util.List;
  链接：https://leetcode-cn.com/problems/3sum
  著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class ThreeSum15 {
+public class P15_ThreeSum {
 
     /**
      * 三数之和拆分为两数之和，再利用有序数组进行首尾向中部搜索（排序+双指针）

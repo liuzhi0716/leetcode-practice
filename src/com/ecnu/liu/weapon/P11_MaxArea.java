@@ -17,7 +17,7 @@ package com.ecnu.liu.weapon;
  链接：https://leetcode-cn.com/problems/container-with-most-water
  著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class MaxArea11 {
+public class P11_MaxArea {
 
     /**
      * 暴力解法
