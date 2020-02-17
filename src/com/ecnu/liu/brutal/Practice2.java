@@ -1,5 +1,7 @@
 package com.ecnu.liu.brutal;
 
+import com.ecnu.liu.struct.ListNode;
+
 /**
  * @author: create by liuxiansen
  * @description: com.ecnu.liu.brutal
@@ -25,14 +27,6 @@ public class Practice2 {
      * ListNode(int x) { val = x; }
      * }
      */
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode (int x) { val = x; }
-    }
-
     class Solution {
         public ListNode addTwoNumbers (ListNode l1, ListNode l2) {
             ListNode l3 = new ListNode(0);
