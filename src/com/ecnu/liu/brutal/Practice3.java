@@ -13,8 +13,7 @@ import java.util.Map;
 public class Practice3 {
 
     /**
-     * dp[0] = 1
-     * dp[i] = max(dp[i-1]+1, array[i]
+     * 出现这个字符 就更新位置，然后每次长度以更新后的位置开始计算即可
      */
     public static int lengthOfLongestSubstring (String s) {
         if (s == null || s.length() == 0) {
