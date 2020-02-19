@@ -1,5 +1,7 @@
 package com.ecnu.liu.brutal;
 
+import java.util.regex.Pattern;
+
 /**
  * @author: create by liuxiansen
  * @description: com.ecnu.liu.brutal
@@ -57,5 +59,7 @@ package com.ecnu.liu.brutal;
  */
 public class Practice10 {
 
-
+    public boolean isMatch(String s, String p) {
+        return Pattern.matches(p, s);
+    }
 }
