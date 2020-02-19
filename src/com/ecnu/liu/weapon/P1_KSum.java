@@ -61,7 +61,8 @@ public class P1_KSum {
     }
 
     public static void main(String[] args) {
-        int[] nums = {-4, -3, -2, -1, 0, 1, 2, 3, 4};
+//        int[] nums = {-4, -3, -2, -1, 0, 1, 2, 3, 4};
+        int[] nums = {0,0,0,0};
         List<List<Integer>> ksum = ksum(nums, 0, 4, 0, nums.length-1);
         System.out.println(ksum.toString());
     }
