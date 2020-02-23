@@ -2,6 +2,9 @@ package com.ecnu.liu.brutal;
 
 import com.ecnu.liu.struct.ListNode;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 /**
  * @author: create by liuxiansen
  * @description: com.ecnu.liu.brutal
@@ -33,43 +36,65 @@ import com.ecnu.liu.struct.ListNode;
  */
 public class Practice25 {
 
-    public ListNode reverseKGroup (ListNode head, int k) {
-        ListNode result = head;
-        while (head != null && k > 1) {
-            reverseNode(head, k);
+    /**
+     * 方法一使用双端队列，满足k就用栈的方法先进后出，不满足就先进先出
+     * @param head
+     * @param k
+     * @return
+     */
+    public static ListNode reverseKGroup (ListNode head, int k) {
+        if (head == null && k == 1) {
+            return head;
         }
-        return null;
+        Deque<ListNode> deque = new LinkedList<>();
+        ListNode virtual = new ListNode(-1);
+        ListNode tail = virtual;
+        while (head != null) {
+            int num = 0;
+            for (int i = 0; i < k; i++) {
+                if (head != null) {
+                    deque.push(head);
+                    head = head.next;
+                    num++;
+                }
+            }
+            //满足用栈,不满足用队列出
+            if (num == k) {
+                for (int i = 0; i < num; i++) {
+                    tail.next = deque.pop();
+                    tail = tail.next;
+                }
+            } else {
+                for (int i = 0; i < num; i++) {
+                    tail.next = deque.pollLast();
+                    tail = tail.next;
+                }
+            }
+            tail.next = null;
+        }
+        return virtual.next;
     }
 
+    /**
+     * 方法二 直接for循环 头尾插法，然后拼接好，太复杂 待以后写
+     * @param args
+     */
 
-    public ListNode reverseNode (ListNode node, int num) {
-        ListNode temp = node;
-        int index = num;
-        //长度不够，就不做操作 如果是5,表示从node开始及后面4个节点如果有一个为空就不做操作
-        index -= 1;
-        while (index > 0) {
-            if (temp == null) {
-                return node;
-            }
-            index--;
-            temp = temp.next;
-        }
-
-        ListNode tail = temp;
-        index = num - 1;
-        ListNode afer = tail.next;
-        tail.next = null;
-        while (index > 0) {
-            ListNode temp2 = tail.next;
-            tail.next = node;
-            node.next = temp2.next;
-
-            if (node.next != null) {
-                node = node.next;
-            }
-            index--;
-        }
-        node.next = afer;
-        return tail;
+    public static void main (String[] args) {
+//        ListNode node1 = new ListNode(1);
+//        ListNode node2 = new ListNode(2);
+//        ListNode node3 = new ListNode(3);
+//        ListNode node4 = new ListNode(4);
+//        ListNode node5 = new ListNode(5);
+//        node1.next = node2;
+//        node2.next = node3;
+//        node3.next = node4;
+//        node4.next = node5;
+//        reverseKGroup(node1, 3);
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        node1.next = node2;
+        reverseKGroup(node1, 2);
     }
+
 }
