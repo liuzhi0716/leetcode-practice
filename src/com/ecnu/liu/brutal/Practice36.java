@@ -79,10 +79,10 @@ public class Practice36 {
 
     public boolean isValidSudoku (char[][] board) {
         //行,列，主要是小九宫格判定
+        boolean[][] rows = new boolean[9][9];
+        boolean[][] cols = new boolean[9][9];
+        boolean[][] cells = new boolean[9][9];
         for (int i = 0; i < board.length; i++) {
-            boolean[][] rows = new boolean[9][9];
-            boolean[][] cols = new boolean[9][9];
-            boolean[][] cells = new boolean[9][9];
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] != '.') {
                     int now = board[i][j] - '1';
