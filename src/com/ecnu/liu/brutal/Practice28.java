@@ -37,9 +37,13 @@ public class Practice28 {
             return -1;
         }
         for (int i = 0; i < haystack.length(); i++) {
+            // 剪枝
+            if (haystack.length() - i < needle.length()) {
+                break;
+            }
             int start = 0;
-            while (start + i < haystack.length() &&start < needle.length() && haystack.charAt(i+start) == needle.charAt(start)) {
-                if (start == needle.length()-1) {
+            while (start + i < haystack.length() && start < needle.length() && haystack.charAt(i + start) == needle.charAt(start)) {
+                if (start == needle.length() - 1) {
                     return i;
                 }
                 start++;

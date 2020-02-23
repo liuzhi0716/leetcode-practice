@@ -8,7 +8,7 @@ CREATE TABLE `salaries` (
 PRIMARY KEY (`emp_no`,`from_date`));
 
 
-
+https://www.nowcoder.com/practice/6d4a4cff1d58495182f536c548fee1ae?tpId=82&tqId=29759&rp=0&ru=/ta/sql&qru=/ta/sql/question-ranking
 
 select i.emp_no, i.t from (
   select emp_no, count(1) as t from salaries group by emp_no
