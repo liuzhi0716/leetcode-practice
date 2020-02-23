@@ -68,56 +68,44 @@ public class Practice36 {
      * @param board
      * @return
      */
+    /**
+     * 9个9宫格cell数组: i=0-2时，在第一行123中，由j/3决定在哪个里面，如i=2,j=6  应该在第3格(cell[2])里  2/3*3 + 6/3 = 2正确
+     * 每个九宫格装的9个数也要用数组来记，所以要是二维数组，上面只能决定是在哪个格子里，也就是二维数组的第一个值
+     *
+     * 1 2 3
+     * 4 5 6
+     * 7 8 9
+     */
 
     public boolean isValidSudoku (char[][] board) {
-        //行
+        //行,列，主要是小九宫格判定
         for (int i = 0; i < board.length; i++) {
-            boolean[] array = new boolean[9];
+            boolean[][] rows = new boolean[9][9];
+            boolean[][] cols = new boolean[9][9];
+            boolean[][] cells = new boolean[9][9];
             for (int j = 0; j < board[i].length; j++) {
                 if(board[i][j] != '.') {
-                    int now = board[i][j]- '0';
-                    if (array[now-1]) {
+                    int now = board[i][j]- '1';
+                    if (rows[i][now]) {
                         return false;
                     } else {
-                        array[now-1] = true;
+                        rows[i][now] = true;
                     }
-                }
-            }
-        }
-        //列
-        for (int i = 0; i < board.length; i++) {
-            boolean[] array = new boolean[9];
-            for (int j = 0; j < board[i].length; j++) {
-                if(board[j][i] != '.') {
-                    int now = board[j][i]- '0';
-                    if (array[now-1]) {
+                    if (cols[now][j]) {
                         return false;
                     } else {
-                        array[now-1] = true;
+                        cols[now][j] = true;
+                    }
+                    //算九宫格是哪一个小格里,需要*3 不然ij都是8的时候明显不正确
+                    int num = i / 3 * 3 + j / 3;
+                    if (cells[num][now]) {
+                        return false;
+                    } else {
+                        cells[num][now] = true;
                     }
                 }
-            }
-        }
-        //九宫格
-        int istart = 3;
-        int jstart =3;
-        while (istart < board.length) {
-            for (int i = istart-3; i < istart; i++) {
-                boolean[] array = new boolean[9];
-                for (int j = jstart-3; j < jstart; j++) {
-                    if(board[i][j] != '.') {
-                        int now = board[i][j]- '0';
-                        if (array[now-1]) {
-                            return false;
-                        } else {
-                            array[now-1] = true;
-                        }
-                    }
-                }
-
             }
         }
         return true;
-
     }
 }

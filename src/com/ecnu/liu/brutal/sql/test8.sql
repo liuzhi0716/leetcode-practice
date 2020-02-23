@@ -7,6 +7,6 @@ CREATE TABLE `salaries` (
 PRIMARY KEY (`emp_no`,`from_date`));
 
 
-
+https://www.nowcoder.com/practice/ae51e6d057c94f6d891735a48d1c2397?tpId=82&tqId=29760&rp=0&ru=/ta/sql&qru=/ta/sql/question-ranking
 
 select distinct(salary) from  salaries where to_date = '9999-01-01' order by salary desc
