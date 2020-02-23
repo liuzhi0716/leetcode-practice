@@ -71,7 +71,7 @@ public class Practice36 {
     /**
      * 9个9宫格cell数组: i=0-2时，在第一行123中，由j/3决定在哪个里面，如i=2,j=6  应该在第3格(cell[2])里  2/3*3 + 6/3 = 2正确
      * 每个九宫格装的9个数也要用数组来记，所以要是二维数组，上面只能决定是在哪个格子里，也就是二维数组的第一个值
-     *
+     * <p>
      * 1 2 3
      * 4 5 6
      * 7 8 9
@@ -84,17 +84,17 @@ public class Practice36 {
             boolean[][] cols = new boolean[9][9];
             boolean[][] cells = new boolean[9][9];
             for (int j = 0; j < board[i].length; j++) {
-                if(board[i][j] != '.') {
-                    int now = board[i][j]- '1';
+                if (board[i][j] != '.') {
+                    int now = board[i][j] - '1';
                     if (rows[i][now]) {
                         return false;
                     } else {
                         rows[i][now] = true;
                     }
-                    if (cols[now][j]) {
+                    if (cols[j][now]) {
                         return false;
                     } else {
-                        cols[now][j] = true;
+                        cols[j][now] = true;
                     }
                     //算九宫格是哪一个小格里,需要*3 不然ij都是8的时候明显不正确
                     int num = i / 3 * 3 + j / 3;
@@ -108,4 +108,32 @@ public class Practice36 {
         }
         return true;
     }
+
+    public boolean isValidSudoku2 (char[][] board) {
+        //行,列，主要是小九宫格判定
+        boolean[][] row = new boolean[9][9], col = new boolean[9][9], cube = new boolean[9][9];
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                char c = board[i][j];
+                if (c == '.') continue;
+                int num = c - '1';
+
+                // row秘书行动
+                if (row[i][num]) return false;
+                else row[i][num] = true;
+
+                // col秘书
+                if (col[j][num]) return false;
+                else col[j][num] = true;
+
+                // cube秘书
+                int ci = (i / 3) * 3 + (j / 3);
+                if (cube[ci][num]) return false;
+                else cube[ci][num] = true;
+            }
+        }
+        return true;
+
+    }
+
 }
