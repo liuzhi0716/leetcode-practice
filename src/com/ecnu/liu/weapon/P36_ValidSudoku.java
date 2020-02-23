@@ -61,7 +61,7 @@ import java.util.Set;
 public class P36_ValidSudoku {
 
     /**
-     * 三次遍历
+     * 三趟遍历
      * 时间复杂度：O(1)
      * 空间复杂度：O(1)
      * @param board
@@ -99,6 +99,43 @@ public class P36_ValidSudoku {
                 set.clear();
             }
 
+        }
+        return true;
+    }
+
+    /**
+     * 一趟遍历
+     * @param board
+     * @return
+     */
+    public boolean isValidSudoku2(char[][] board) {
+        boolean[][] rows = new boolean[9][9];
+        boolean[][] cols = new boolean[9][9];
+        boolean[][] cells = new boolean[9][9];
+        //行,列，主要是小九宫格判定
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j] != '.') {
+                    int now = board[i][j] - '1';
+                    if (rows[i][now]) {
+                        return false;
+                    } else {
+                        rows[i][now] = true;
+                    }
+                    if (cols[j][now]) {
+                        return false;
+                    } else {
+                        cols[j][now] = true;
+                    }
+                    //算九宫格是哪一个小格里,需要*3 不然ij都是8的时候明显不正确
+                    int num = i / 3 * 3 + j / 3;
+                    if (cells[num][now]) {
+                        return false;
+                    } else {
+                        cells[num][now] = true;
+                    }
+                }
+            }
         }
         return true;
     }
