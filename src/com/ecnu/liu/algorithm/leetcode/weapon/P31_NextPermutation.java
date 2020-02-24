@@ -52,6 +52,15 @@ public class P31_NextPermutation {
         }
     }
 
+    /**
+     * 这while条件不能有等于，避免死循环
+     * 最后需要判断等于的情况来确定最终的下标
+     * @param nums
+     * @param val
+     * @param left
+     * @param right
+     * @return
+     */
     public int binarySearch(int[] nums, int val, int left, int right) {
         int mid = -1;
         while (left < right) {
