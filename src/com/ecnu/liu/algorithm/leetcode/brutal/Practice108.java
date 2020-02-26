@@ -33,10 +33,43 @@ public class Practice108 {
 
     /**
      * 难点，如何保证 每个节点的子树高度差为不超过1
+     *
+     * 把数组当中序遍历的结果，中间的值为根节点，就可以保证是平衡树了
      * @param nums
      * @return
      */
 //    public TreeNode sortedArrayToBST(int[] nums) {
+//        if (nums == null || nums.length == 0) {
+//            return null;
+//        }
+//        int l = 0;
+//        int r = nums.length;
+//        int m = (l + r) / 2;
+//        TreeNode head = new TreeNode(nums[m]);
+//        if (head.left != null) {
+//            head.left = buildTree(nums, l, m-1, head);
+//        }
+//        if (head.right != null) {
+//            head.right = buildTree(nums, m + 1, r, head);
+//        }
+//        return head;
+//    }
 //
+//    private TreeNode buildTree(int[] nums, int l, int r, TreeNode root) {
+//        if (l > r) {
+//            return null;
+//        }
+//        if (l == r) {
+//            return new TreeNode(nums[l]);
+//        }
+//        int m = (l + r) / 2;
+//        TreeNode now = new TreeNode(nums[m]);
+//        if (root.left != null) {
+//            root.left = buildTree(nums, l, m-1, now);
+//        }
+//        if (root.right != null) {
+//            root.right = buildTree(nums, m+1, r,now);
+//        }
+//        return now;
 //    }
 }
