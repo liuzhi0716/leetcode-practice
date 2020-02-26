@@ -42,7 +42,7 @@ public class P110_BalancedBinaryTree {
     /**
      * 自下向上递归判断
      * 时间复杂度：O(n)
-     * 空间复杂度：O(1)
+     * 空间复杂度：O(1)，栈空间复杂度：O(log2(n))
      */
     boolean flag = true;
     public boolean isBalanced1(TreeNode root) {

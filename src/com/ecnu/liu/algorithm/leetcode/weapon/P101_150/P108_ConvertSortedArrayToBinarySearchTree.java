@@ -28,7 +28,7 @@ public class P108_ConvertSortedArrayToBinarySearchTree {
     /**
      * 递归
      * 时间复杂度：O(n)
-     * 空间复杂度：O(n)
+     * 空间复杂度：O(n)，栈空间复杂度：O(log2(n))
      * @param nums
      * @return
      */
