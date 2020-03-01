@@ -1,0 +1,85 @@
+字节跳动4面核心面试题
+https://zhuanlan.zhihu.com/p/109266355
+
+
+字节跳动4面核心面试题
+01 Zookeeper 部分
+
+Zookeeper通知机制
+Zookeeper集群管理
+Zookeeper分布式锁
+zookeeper是如何选取主leader的？
+
+
+
+02 Redis 部分
+
+redis 主从复制如何实现的？redis 的集群模式如何实现？redis 的 key 是如何寻址的？
+使用 redis 如何设计分布式锁？说一下实现思路？使用 zk 可以吗？如何实现？这两种有什么区别
+知道 redis 的持久化吗？底层如何实现的？有什么优点缺点？
+redis 过期策略都有哪些？LRU 算法知道吗？写一下 java 代码实现？
+缓存穿透、缓存击穿、缓存雪崩解决方案
+缓存与数据库不一致怎么办
+主从数据库不一致如何解决
+Redis 常见的性能问题和解决方案
+
+
+
+03 Mysql 部分
+
+有哪些数据库优化方面的经验?
+mysql 中 myisam 与 innodb 的区别？
+mysql 中 varchar 与 char 的区别以及 varchar(50)中的 50 代表的涵义？
+MySQL 中 InnoDB 支持的四种事务隔离级别名称，以及逐级之间的区别？
+MySQL 中 InnoDB 引擎的行锁是通过加在什么上完成（或称实现）的？
+InnoDB 行锁是通过给索引上的索引项加锁
+MySQL 中控制内存分配的全局参数，有哪些？
+具体谈一下sql如何优化?
+explain是如何解析sql的？
+说一下order by原理
+
+
+
+04 JVM 部分
+
+内存模型以及分区，需要详细到每个区放什么
+对象创建方法，对象的内存分配，对象的访问定位。
+GC 收集器有哪些？CMS 收集器与 G1 收集器的特点
+Minor GC 与 Full GC 分别在什么时候发生？
+JVM 内存分哪几个区，每个区的作用是什么?
+如和判断一个对象是否存活?(或者 GC 对象的判定方法)
+
+
+05 Java 基础部分
+
+HashMap和ConcurrentHashMap区别
+jdk1.8/jdk1.7都分别新增了哪些特性？
+面向对象和面向过程的区别
+什么是字节码?采用字节码的好处是什么?
+Java 应用程序与小程序之间有那些差别
+在一个静态方法内调用一个非静态成员为什么是非法的
+在 Java 中定义一个不做事且没有参数的构造方法的作用
+
+
+
+06 Spring 部分
+
+谈谈对 Spring IoC 的理解？
+谈谈对 Spring DI 的理解？
+Spring的IOC/AOP的实现
+解释 AOP 模块
+介绍一下 Spring 的事务实现方式？
+在Spring中使用hibernate的方法步骤
+Spring 和 Struts 的区别？
+谈谈你对 Spring 依赖注入的理解？
+Spring AOP 中的织入你怎样理解？
+怎么样把某个请求映射到特定的方法上面
+谈谈 Spring 对 DAO 的支持
+
+
+
+07 其他部分
+
+高并发系统的限流如何实现？
+高并发秒杀系统的设计
+如何设计负载均衡？
