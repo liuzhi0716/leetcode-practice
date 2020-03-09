@@ -227,7 +227,29 @@ Java中用到的锁
     先写数据库再写缓存
     缓存写失败的话，try catch重写n次，如果再次失败，则放入消息队列重写，再次重写失败则清空
 
-针对千万次每秒的访问，分布式缓存如何实现？主从换从如何保证一致性
+    1. 更新数据时清空缓存而不更新缓存，原因是数据的访问可能并不是很频繁，多次更新可能只有一次访问
+    2. 先写数据库再清缓存，
+        存在问题：缓存删除失败存在缓存和数据库不一致
+    3. 先删除缓存，在修改数据库，
+        存在同样的问题，
+        解决办法：
+            1. 读写操作放入到jvm队列中
+            2. 利用一个缓存记录必须读主的数据，失效时间设置为主从同步延时时间
+
+            代码实现：https://blog.csdn.net/simba_1986/article/details/77823309?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
+
+
+    https://www.javazhiyin.com/22969.html
+    https://segmentfault.com/a/1190000015804406
+
+针对千万次每秒的访问，分布式缓存如何实现？主从缓存如何保证一致性
+
+    https://juejin.im/post/5cb13b4d6fb9a0687b7dd0bd
+    https://blog.csdn.net/u011138533/article/details/102490425
+
+    一致性hash和hash槽
+    CAP，增量同步，快照同步，无盘同步
+
 
 
 Git rebase 与 Git merge的区别
