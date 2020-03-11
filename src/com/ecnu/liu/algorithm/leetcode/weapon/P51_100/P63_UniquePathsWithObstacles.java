@@ -33,7 +33,7 @@ package com.ecnu.liu.algorithm.leetcode.weapon.P51_100;
 public class P63_UniquePathsWithObstacles {
 
     /**
-     * 递归
+     * 动态规划
      *
      * 时间复杂度：O(m*n)
      * 空间复杂度：O(m*n)
