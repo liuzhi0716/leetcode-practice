@@ -49,7 +49,7 @@ public class Practice414 {
      * @param nums
      * @return
      */
-    public int thirdMax(int[] nums) {
+//    public int thirdMax(int[] nums) {
 //        PriorityQueue<Integer> heap = new PriorityQueue<>(3);
 //        for (int i = 0; i < nums.length; i++) {
 //            if(heap.contains(nums[i])) {
@@ -57,5 +57,5 @@ public class Practice414 {
 //            }
 //        }
 //        return heap.peek();
-    }
+//    }
 }
