@@ -41,5 +41,4 @@ public class Practice0 {
         a.start();
         b.start();
     }
-
 }
